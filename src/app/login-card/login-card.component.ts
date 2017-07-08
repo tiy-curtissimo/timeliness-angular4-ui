@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginCardComponent implements OnInit {
 
+  private username = '';
+  private password = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get disableButton() {
+    return this.username.length === 0 ||
+           this.password.length === 0;
+  }
+
+  submitCredentials() {
+    console.log('username:', this.username);
+    console.log('password:', this.password);
+
+    this.username = '';
+    this.password = '';
   }
 
 }

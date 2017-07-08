@@ -41,6 +41,10 @@ button:active {
   background-color: #eeeeee;
 }
 
+button[disabled] {
+  color: #eeeeee;
+}
+
 input::placeholder {
   font-weight: 300;
   color: rgba(0, 0, 0, .24);
