@@ -34,3 +34,11 @@ input {
   display: flex;
   justify-content: flex-end;
 }
+
+.error {
+  padding-top: 8px;
+}
+
+.error:empty {
+  padding-top: 0;
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'app-login-card',
@@ -9,8 +12,9 @@ export class LoginCardComponent implements OnInit {
 
   private username = '';
   private password = '';
+  private error: string;
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
@@ -21,11 +25,29 @@ export class LoginCardComponent implements OnInit {
   }
 
   submitCredentials() {
-    console.log('username:', this.username);
-    console.log('password:', this.password);
-
-    this.username = '';
-    this.password = '';
+    const payload = {
+      username: this.username,
+      password: this.password
+    };
+    const options = {
+      withCredentials: true
+    };
+    const cookieUrl = 'http://localhost:5000/api/clients';
+    const sessionUrl = 'http://localhost:5000/api/session/mine';
+    this.http
+      .get(cookieUrl, options)
+      .catch(() => this.http.put(sessionUrl, payload, options))
+      .subscribe(
+        () => {
+          this.error = '';
+          console.log('logged in');
+        },
+        e => {
+          if (e.status === 401) {
+            this.error = 'Could not log in with those credentials';
+          }
+        },
+      );
   }
 
 }
