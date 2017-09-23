@@ -1,3 +1,6 @@
+import { FormsModule } from '@angular/forms';
+import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginCardComponent } from './login-card.component';
@@ -8,7 +11,11 @@ describe('LoginCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginCardComponent ]
+      declarations: [ LoginCardComponent ],
+      imports: [ FormsModule, HttpModule ],
+      providers: [
+        { provide: XHRBackend, useClass: MockBackend }
+      ]
     })
     .compileComponents();
   }));
