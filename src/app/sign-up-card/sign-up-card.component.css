@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  align-self: center;
+  padding: 0 0 8px 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .24);
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+.form-line {
+  display: flex;
+}
+
+input {
+  flex: 1 0 0px;
+}
+
+.figure {
+  background-color: #b3e5fc;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.content {
+  padding: 8px 16px;
+}
+
+.actions {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  padding-top: 8px;
+}
+
+.error:empty {
+  padding-top: 0;
+}
+
+.header {
+  font-weight: 300;
+  font-size: 2em;
+}
