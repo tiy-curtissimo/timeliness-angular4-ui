@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { RegistrationCtaComponent } from './registration-cta/registration-cta.component';
 import { LoginCardComponent } from './login-card/login-card.component';
 import { SignUpCardComponent } from './sign-up-card/sign-up-card.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationCtaComponent,
     LoginCardComponent,
-    SignUpCardComponent
+    SignUpCardComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
