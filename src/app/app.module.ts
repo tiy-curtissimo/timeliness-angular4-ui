@@ -9,10 +9,13 @@ import { RegistrationCtaComponent } from './registration-cta/registration-cta.co
 import { LoginCardComponent } from './login-card/login-card.component';
 import { SignUpCardComponent } from './sign-up-card/sign-up-card.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { MainScreenComponent } from './main-screen/main-screen.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 const appRoutes: Routes = [
   { path: 'login',  component: LoginPageComponent },
   { path: 'signup', component: SignUpCardComponent },
+  { path: 'main',   component: MainScreenComponent, canActivate: [LoggedInGuard] },
   { path: '',  redirectTo: '/login', pathMatch: 'full' }
 ];
 
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     RegistrationCtaComponent,
     LoginCardComponent,
     SignUpCardComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MainScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
