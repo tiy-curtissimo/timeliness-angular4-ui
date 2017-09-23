@@ -30,17 +30,22 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
+a.button,
 button {
   border: 0;
   background-color: transparent;
   text-transform: uppercase;
   color: #ff6d00;
+  padding: 4px 8px;
+  text-decoration: none;
 }
 
+a.button:hover,
 button:active {
   background-color: #eeeeee;
 }
 
+a.button[disabled],
 button[disabled] {
   color: #eeeeee;
 }
