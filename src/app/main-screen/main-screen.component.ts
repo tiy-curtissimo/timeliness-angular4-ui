@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { AuthenticationService } from '../authentication/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,22 +9,15 @@ import { Router } from '@angular/router';
 })
 export class MainScreenComponent implements OnInit {
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   logout() {
-    const options = {
-      withCredentials: true
-    };
-    const logoutUrl = 'http://localhost:5000/api/session/mine';
-    this.http
-      .delete(logoutUrl, options)
-      .subscribe(
-        () => this.router.navigate(['/']),
-        error => console.error('Error logging out', error)
-      );
+    this.auth
+      .logout()
+      .subscribe(e => console.log(e) || this.router.navigate(['/']));
   }
 
 }

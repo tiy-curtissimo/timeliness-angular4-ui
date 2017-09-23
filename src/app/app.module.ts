@@ -11,6 +11,7 @@ import { SignUpCardComponent } from './sign-up-card/sign-up-card.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MainScreenComponent } from './main-screen/main-screen.component';
 import { LoggedInGuard } from './logged-in.guard';
+import { AuthenticationService } from './authentication/authentication.service';
 
 const appRoutes: Routes = [
   { path: 'login',  component: LoginPageComponent },
@@ -34,7 +35,10 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [LoggedInGuard],
+  providers: [
+    LoggedInGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
