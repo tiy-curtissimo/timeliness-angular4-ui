@@ -12,11 +12,25 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MainScreenComponent } from './main-screen/main-screen.component';
 import { LoggedInGuard } from './logged-in.guard';
 import { AuthenticationService } from './authentication/authentication.service';
+import { TimeEntriesComponent } from './time-entries/time-entries.component';
+import { ClientsListComponent } from './clients-list/clients-list.component';
+import { ReportComponent } from './report/report.component';
+
 
 const appRoutes: Routes = [
   { path: 'login',  component: LoginPageComponent },
   { path: 'signup', component: SignUpCardComponent },
-  { path: 'main',   component: MainScreenComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'main',
+    component: MainScreenComponent,
+    canActivate: [LoggedInGuard],
+    children: [
+      { path: 'clients', component: ClientsListComponent },
+      { path: 'entries', component: TimeEntriesComponent },
+      { path: 'report',  component: ReportComponent },
+      { path: '', redirectTo: 'entries', pathMatch: 'full' }
+    ]
+  },
   { path: '',  redirectTo: '/login', pathMatch: 'full' }
 ];
 
@@ -27,7 +41,10 @@ const appRoutes: Routes = [
     LoginCardComponent,
     SignUpCardComponent,
     LoginPageComponent,
-    MainScreenComponent
+    MainScreenComponent,
+    TimeEntriesComponent,
+    ClientsListComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

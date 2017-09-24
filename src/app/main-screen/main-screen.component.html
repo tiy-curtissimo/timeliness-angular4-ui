@@ -5,8 +5,9 @@
 </header>
 <nav class="tabs">
   <ul class="tabs-list">
-    <li class="tabs-item tabs-item-selected"><a href="/">Today's Work</a></li>
-    <li class="tabs-item"><a href="/clients">Clients</a></li>
-    <li class="tabs-item"><a href="/report">Report</a></li>
+    <li class="tabs-item" routerLinkActive="tabs-item-selected"><a routerLink="/main/entries">Today's Work</a></li>
+    <li class="tabs-item" routerLinkActive="tabs-item-selected"><a routerLink="/main/clients">Clients</a></li>
+    <li class="tabs-item" routerLinkActive="tabs-item-selected"><a routerLink="/main/report">Report</a></li>
   </ul>
 </nav>
+<router-outlet></router-outlet>
