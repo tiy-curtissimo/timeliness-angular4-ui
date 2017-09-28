@@ -1,3 +1,41 @@
-<p>
-  time-entries works!
-</p>
+<h1 *ngIf="clients && !clients.length" class="standalone-message">
+  You must first create some clients.
+</h1>
+<div *ngIf="clients && clients.length">
+  <table class="data-table" *ngIf="entries">
+    <thead>
+      <tr>
+        <th class="data-table-main-column">Client</th>
+        <th class="data-table-numeric">Start</th>
+        <th class="data-table-numeric">End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries">
+        <td class="data-table-main-column">{{ entry.client.name }}</td>
+        <td class="data-table-numeric">{{ entry.fromFormatted() }}</td>
+        <td class="data-table-numeric" *ngIf="entry.toFormatted()">{{ entry.toFormatted() }}</td>
+        <td class="data-table-numeric" *ngIf="!entry.toFormatted()">
+          <button (click)="finish(entry)">Finish</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="drop-down-holder single-row-chooser-main">
+            <div class="drop-down-decorator">
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+            <select [(ngModel)]="selectedClientId" class="full-width" name="id" id="clientId" required>
+              <option value=""></option>
+              <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+            </select>
+          </div>
+        </td>
+        <td class="data-table-numeric">
+          <button (click)="create()" [disabled]="!selectedClientId" class="button-cta">Start</button>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
