@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 html, body {
   height: 100%;
@@ -14,8 +15,22 @@ body {
   background-color: #f5f5f5;
 }
 
-body, input, textarea, select, button {
-  font-family: 'Roboto', sans-serif;
+body, input, button, textarea, select, a {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  outline: 0;
+}
+
+input, textarea, select {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 8px 0 4px 0;
+  font-size: 16px;
+  height: 56px;
+  margin-bottom: 8px;
 }
 
 body, button {
@@ -48,6 +63,12 @@ button:active {
 a.button[disabled],
 button[disabled] {
   color: #eeeeee;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
 }
 
 input::placeholder {
@@ -130,4 +151,67 @@ input[type=password]:focus {
 
 .tabs-item-selected {
   border-bottom-color: #ffc400;
+}
+
+.single-row-chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-row-chooser > .single-row-chooser-main {
+  flex: 1 0 0px;
+}
+
+.single-row-chooser > * {
+  margin-left: 8px;
+}
+
+.single-row-chooser > *:first-child {
+  margin-left: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-sized {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.drop-down-holder {
+  position: relative;
+}
+
+.drop-down-decorator {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  z-index: -1;
+}
+
+.data-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.data-table-main-column {
+  text-align: left;
+  padding: 0 28px;
+  width: 100%;
+}
+
+th.data-table-numeric {
+  text-align: center;
+}
+
+.data-table-numeric {
+  white-space: nowrap;
+  text-align: right;
+  height: 48px;
+  padding: 0 28px;
+  width: 74px;
 }

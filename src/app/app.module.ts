@@ -15,6 +15,9 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { TimeEntriesComponent } from './time-entries/time-entries.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { ReportComponent } from './report/report.component';
+import { TimeEntriesDataService } from 'app/time-entries-data/time-entries-data.service';
+import { ReportDataService } from 'app/report-data/report-data.service';
+import { ClientDataService } from 'app/client-data/client-data.service';
 
 
 const appRoutes: Routes = [
@@ -54,7 +57,10 @@ const appRoutes: Routes = [
   ],
   providers: [
     LoggedInGuard,
-    AuthenticationService
+    AuthenticationService,
+    ClientDataService,
+    ReportDataService,
+    TimeEntriesDataService
   ],
   bootstrap: [AppComponent]
 })

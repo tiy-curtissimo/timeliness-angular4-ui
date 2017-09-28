@@ -13,7 +13,7 @@ export class ReportDataService {
 
   constructor(private http: Http) { }
 
-  getReportData(clientId: number): Observable<ReportEntry> {
+  getReportData(clientId: number): Observable<ReportEntry[]> {
     return this.http
       .post(this.baseUrl, { id: clientId }, this.options)
       .map(response => response.json());
