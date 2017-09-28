@@ -10,7 +10,7 @@ export class TimeEntriesDataService {
   private options: RequestOptionsArgs = {
     withCredentials: true
   };
-  baseUrl = 'http://localhost:5000/api/entries'
+  private baseUrl = 'http://localhost:5000/api/entries';
 
   constructor(private http: Http) { }
 

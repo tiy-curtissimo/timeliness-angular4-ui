@@ -9,7 +9,7 @@ export class ReportDataService {
   private options: RequestOptionsArgs = {
     withCredentials: true
   };
-  baseUrl = 'http://localhost:5000/api/report'
+  private baseUrl = 'http://localhost:5000/api/report';
 
   constructor(private http: Http) { }
 

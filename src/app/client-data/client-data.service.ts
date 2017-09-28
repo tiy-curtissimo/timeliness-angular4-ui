@@ -9,7 +9,7 @@ export class ClientDataService {
   private options: RequestOptionsArgs = {
     withCredentials: true
   };
-  baseUrl = 'http://localhost:5000/api/clients'
+  private baseUrl = 'http://localhost:5000/api/clients';
 
   constructor(private http: Http) { }
 
