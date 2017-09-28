@@ -21,15 +21,12 @@
       </tr>
       <tr>
         <td>
-          <div class="drop-down-holder single-row-chooser-main">
-            <div class="drop-down-decorator">
-              <i class="material-icons">arrow_drop_down</i>
-            </div>
+          <app-fancy-drop-down class="single-row-chooser-main">
             <select [(ngModel)]="selectedClientId" class="full-width" name="id" id="clientId" required>
               <option value=""></option>
               <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
             </select>
-          </div>
+          </app-fancy-drop-down>
         </td>
         <td class="data-table-numeric">
           <button (click)="create()" [disabled]="!selectedClientId" class="button-cta">Start</button>

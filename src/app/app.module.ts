@@ -18,6 +18,7 @@ import { ReportComponent } from './report/report.component';
 import { TimeEntriesDataService } from 'app/time-entries-data/time-entries-data.service';
 import { ReportDataService } from 'app/report-data/report-data.service';
 import { ClientDataService } from 'app/client-data/client-data.service';
+import { FancyDropDownComponent } from './fancy-drop-down/fancy-drop-down.component';
 
 
 const appRoutes: Routes = [
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     MainScreenComponent,
     TimeEntriesComponent,
     ClientsListComponent,
-    ReportComponent
+    ReportComponent,
+    FancyDropDownComponent
   ],
   imports: [
     BrowserModule,
